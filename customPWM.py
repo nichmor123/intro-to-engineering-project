@@ -1,7 +1,6 @@
 import os
 import time
 import threading
-
 class SoftwarePWM:
     def __init__(self, pin, frequency=20, duty_cycle=0):
         self.pin = pin
@@ -29,11 +28,3 @@ class SoftwarePWM:
         print("PWM stopped and pin unexported")
     def set_duty_cycle(self, duty_cycle):
         self.duty_cycle = duty_cycle
-
-
-'''
-pwm = SoftwarePWM(3)
-pwm.start()
-pwm.set_duty_cycle(x)
-pwm.stop()
-'''
