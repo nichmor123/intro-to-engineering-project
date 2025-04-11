@@ -23,6 +23,11 @@ def handle_leftTurn(leftTurnSpeed):
     driveTrain.turnLeft(leftTurnSpeed)
     return "done"
 
+@app.route('/stop', methods=['GET'])
+def handle_stop():
+    driveTrain.stop()
+    return "done"
+
 @app.route('/armPosition/<int:armPosition>', methods=['GET'])
 def handle_armPosition(armPosition):
     #needs to be defined

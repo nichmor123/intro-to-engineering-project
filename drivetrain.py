@@ -1,7 +1,7 @@
 import motorControl
 import time
 class drivetrainControl:
-    def __init__(self, FRR=2, FRL=5, FLR=7, FLL=8, BRR=21, BRL=22, BLR=3, BLL=4):
+    def __init__(self, FRR=2, FRL=5, FLR=7, FLL=8, BRR=23, BRL=22, BLR=3, BLL=4):
         self.FRmotor = motorControl.motorCotroller(FRR, FRL)
         self.FLmotor = motorControl.motorCotroller(FLR, FLL)
         self.BRmotor = motorControl.motorCotroller(BRR, BRL)
