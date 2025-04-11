@@ -2,7 +2,7 @@ import os
 import time
 import threading
 class SoftwarePWM:
-    def __init__(self, pin, frequency=20, duty_cycle=0):
+    def __init__(self, pin, frequency=5, duty_cycle=0):
         self.pin = pin
         self.frequency = frequency
         self.duty_cycle = duty_cycle
@@ -14,8 +14,10 @@ class SoftwarePWM:
         while self.running:
             if self.duty_cycle == 0:
                 os.system(f"gpio write {self.pin} 0")
+                time.sleep(self.frequency)
             elif self.duty_cycle == 100:
                 os.system(f"gpio write {self.pin} 1")
+                time.sleep(self.frequency)
             else:
                 high_time = period * self.duty_cycle / 100
                 low_time = period - high_time

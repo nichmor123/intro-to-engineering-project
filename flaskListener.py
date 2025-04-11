@@ -11,7 +11,7 @@ def handle_forward(forwardSpeed):
 
 @app.route('/backward/<int:backwardSpeed>', methods=['GET'])
 def handle_backward(backwardSpeed):
-    driveTrain.back(backwardSpeed)
+    driveTrain.backward(backwardSpeed)
     return str(backwardSpeed)
 
 @app.route('/rightTurn/<int:rightTurnSpeed>', methods=['GET'])

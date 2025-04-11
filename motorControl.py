@@ -15,11 +15,11 @@ class motorCotroller:
     def drive(self, percent):
         self.percentOut = percent * self.multiplier
         if (self.percentOut > 0):
-            self.pwmL.set_duty_cycle(self.percentOut)
+            self.pwmL.set_duty_cycle(percent)
             self.pwmR.set_duty_cycle(0)
         if (self.percentOut < 0):
             self.pwmL.set_duty_cycle(0)
-            self.pwmR.set_duty_cycle(self.percentOut)
+            self.pwmR.set_duty_cycle(percent)
     def breakMode(self, percent):
         self.pwmL.set_duty_cycle(percent)
         self.pwmR.set_duty_cycle(percent)
