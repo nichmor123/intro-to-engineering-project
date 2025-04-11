@@ -1,5 +1,5 @@
 # intro-to-engineering-project
-                         Rpwm, Lpwm
+Rpwm, Lpwm
 Back right       37(23), 35(22)
 Back left.         8(3), 10(4)
 Front right       7(2), 11(5)
