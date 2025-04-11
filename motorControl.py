@@ -24,5 +24,5 @@ class motorCotroller:
         self.pwmL.set_duty_cycle(percent)
         self.pwmR.set_duty_cycle(percent)
     def stop(self):
-        self.pwmL.stop()
-        self.pwmR.stop()
+        self.pwmL.set_duty_cycle(0)
+        self.pwmR.set_duty_cycle(0)

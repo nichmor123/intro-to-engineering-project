@@ -8,15 +8,21 @@ class SoftwarePWM:
         self.duty_cycle = duty_cycle
         self.running = False
         os.system(f"gpio export {self.pin} out")
+        os.system(f"gpio mode {self.pin} out")
     def pwm(self):
         period = 1 / self.frequency
         while self.running:
-            high_time = period * self.duty_cycle / 100
-            low_time = period - high_time
-            os.system(f"gpio write {self.pin} 1")
-            time.sleep(high_time)
-            os.system(f"gpio write {self.pin} 0")
-            time.sleep(low_time)
+            if self.duty_cycle == 0:
+                os.system(f"gpio write {self.pin} 0")
+            elif self.duty_cycle == 100:
+                os.system(f"gpio write {self.pin} 1")
+            else:
+                high_time = period * self.duty_cycle / 100
+                low_time = period - high_time
+                os.system(f"gpio write {self.pin} 1")
+                time.sleep(high_time)
+                os.system(f"gpio write {self.pin} 0")
+                time.sleep(low_time)
     def start(self):
         self.running = True
         self.pwm_thread = threading.Thread(target=self.pwm)
